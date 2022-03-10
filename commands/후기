@@ -1,0 +1,38 @@
+const { MessageEmbed, Permissions, User } = require('discord.js');
+
+module.exports = {
+    name:"패치팀후기",
+    execute(message,args){
+        const msg = args.join(" ")
+        const user = message.mentions.users.first();
+        const reason = args.slice(1).join(" ");
+       const date = new Date()
+       const time = Math.round(date.getTime() / 1000)
+       const embed = new MessageEmbed() 
+
+       .setTitle("후기 알림")
+       .setDescription(`**글 작성자 : ${message.author} \n 대상자 : ${user}\n\n 내용 **` + "```" + `${reason != "" ? reason : "-"}` + "```") 
+       .setColor(0x2894C2)
+        .setTimestamp()
+        .setThumbnail(message.author.displayAvatarURL())
+        message.channel.send({embeds : [embed]})
+    }
+
+module.exports = {
+    name:"스킨팀후기",
+    execute(message,args){
+        const msg = args.join(" ")
+        const user = message.mentions.users.first();
+        const reason = args.slice(1).join(" ");
+       const date = new Date()
+       const time = Math.round(date.getTime() / 1000)
+       const embed = new MessageEmbed() 
+
+       .setTitle("후기 알림")
+       .setDescription(`**글 작성자 : ${message.author} \n 대상자 : ${user}\n\n 내용 **` + "```" + `${reason != "" ? reason : "-"}` + "```") 
+       .setColor(0x2894C2)
+        .setTimestamp()
+        .setThumbnail(message.author.displayAvatarURL())
+        message.channel.send({embeds : [embed]})
+    }
+}
